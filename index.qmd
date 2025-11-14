@@ -3,8 +3,9 @@ title: "Scientific Computing"
 format:
     html:
         embed-resources: true
+        theme: solar
 ---
-#By Zephyr
+# By Zephyr
 
 
 ```{python}
@@ -24,8 +25,6 @@ solvecarbon = x / 180.2 * 6.0 * 40.02 - 10
 sympy.solve(solvewater, x)
 sympy.solve(solvecarbon, x)
 
-print("Function checked: eqs")
-
 solvar = solvewater
 sw1 = sympy.solve(solvar, x)
 solvar = solvewater - 10
@@ -41,8 +40,6 @@ sw = np.array([sw1, sw2, sw3, sw4, sw5])
 wgram = np.array([10.0, 20.0, 30.0, 50.0, 100.0])
 
 wdata = pandas.DataFrame(sw, wgram)
-
-print("Function checked: dfs")
 
 plt.title("Grams Glucose per Grams Water")
 plt.plot(sw,wgram)
