@@ -1,22 +1,53 @@
 ---
-title: "Rick Mitchell"
+title: "Scientific Computing"
 format:
     html:
         embed-resources: true
 ---
+#By Zephyr
 
-I accidentally ordered twelve swiffers on amazon!
 
 ```{python}
-import numpy
+import numpy as np
+import sympy
+from sympy.abc import x
 import matplotlib.pyplot as plt
-import pandas as pd
-stress = numpy.array([1,1,2,3,5,9,20])
-plt.plot(stress)
-plt.savefig("stress.svg")
+import pandas
+
+
+sugarwater = 10.0 / 180.2 * 6.0 * 18.015
+sugarcarbon = 10.0 / 180.2 * 6.0 * 40.02
+
+solvewater = x / 180.2 * 6.0 * 18.015 - 10
+solvecarbon = x / 180.2 * 6.0 * 40.02 - 10
+
+sympy.solve(solvewater, x)
+sympy.solve(solvecarbon, x)
+
+print("Function checked: eqs")
+
+solvar = solvewater
+sw1 = sympy.solve(solvar, x)
+solvar = solvewater - 10
+sw2 = sympy.solve(solvar, x)
+solvar = solvewater - 20
+sw3 = sympy.solve(solvar, x)
+solvar = solvewater - 40
+sw4 = sympy.solve(solvar, x)
+solvar = solvewater - 90
+sw5 = sympy.solve(solvar, x)
+
+sw = np.array([sw1, sw2, sw3, sw4, sw5])
+wgram = np.array([10.0, 20.0, 30.0, 50.0, 100.0])
+
+wdata = pandas.DataFrame(sw, wgram)
+
+print("Function checked: dfs")
+
+plt.title("Grams Glucose per Grams Water")
+plt.plot(sw,wgram)
+plt.savefig("sugar.svg")
 plt.show()
-strdata = pd.DataFrame([stress, [1, 2, 3, 4, 5, 6, 7]])
-strdata.to_markdown()
 ```
 $$x * \frac{1}{180.2} * 6 * 18.015$$
 $$x * \frac{1}{180.2} * 6 * 40.02$$
