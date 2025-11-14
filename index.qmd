@@ -18,3 +18,5 @@ plt.show()
 strdata = pd.DataFrame([stress, [1, 2, 3, 4, 5, 6, 7]])
 strdata.to_markdown()
 ```
+$$x * \frac{1}{180.2} * 6 * 18.015$$
+$$x * \frac{1}{180.2} * 6 * 40.02$$
